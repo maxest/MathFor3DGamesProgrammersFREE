@@ -124,7 +124,7 @@ public class TriangleAndBarycentrics : MonoBehaviour
 
 	private Vector2 Barycentrics3D(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p)
 	{
-		Vector3 normal = Utils.GetNormal(p1, p2, p3);
+		Vector3 normal = Zenon.GetNormal(p1, p2, p3);
 
 		float zAxisLikeness = Vector3.Dot(normal, new Vector3(0.0f, 0.0f, 1.0f));
 		float xAxisLikeness = Vector3.Dot(normal, new Vector3(1.0f, 0.0f, 0.0f));

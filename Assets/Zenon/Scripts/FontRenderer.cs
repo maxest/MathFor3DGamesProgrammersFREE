@@ -4,14 +4,17 @@ public partial class Zenon
 {
 	public class FontRenderer
 	{
-		public void Create(Shader shader_, string name = "Arial", int size = 72)
+		public void Create(Shader shader_, string name_ = "Arial", int size_ = 72)
 		{
 			shader = shader_;
-			font = Font.CreateDynamicFontFromOSFont(name, size);
+			name = name_;
+			size = size_;
 		}
 
 		public Rect Draw(string text, Vector2 position, float scale, HoriAlignment horiAlignment, VertAlignment vertAlignment, int renderQueue, Color color)
 		{
+			if (!font)
+				font = Font.CreateDynamicFontFromOSFont(name, size);
 			font.RequestCharactersInTexture(text);
 
 			Mesh mesh = CreateStringMesh(text, position, scale, horiAlignment, vertAlignment, out Rect rect);
@@ -23,11 +26,13 @@ public partial class Zenon
 
 			Graphics.DrawMesh(mesh, Matrix4x4.Translate(position), material, 0);
 
-			return rect;//new Vector2(rect.x + rect.width, rect.y);
+			return rect;
 		}
 
 		public Rect GetStringRect(string text, Vector2 position, float scale)
 		{
+			if (!font)
+				font = Font.CreateDynamicFontFromOSFont(name, size);
 			font.RequestCharactersInTexture(text);
 
 			Vector2 min = new Vector2(float.MaxValue, float.MaxValue);
@@ -145,6 +150,8 @@ public partial class Zenon
 		}
 
 		private Shader shader;
+		string name;
+		int size;
 		private Font font;
 	}
 }

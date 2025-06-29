@@ -160,165 +160,193 @@ public partial class Zenon
 
 	static public void SetRotation(Transform transform, float x, float y, float z)
 	{
-		transform.rotation = Quaternion.Euler(x, y, z);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.x = x;
+		eulerAngles.y = y;
+		eulerAngles.z = z;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public void SetRotationX(Transform transform, float x)
 	{
-		Vector3 temp = transform.rotation.eulerAngles;
-		temp.x = x;
-		transform.rotation = Quaternion.Euler(temp);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.x = x;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public void SetRotationY(Transform transform, float y)
 	{
-		Vector3 temp = transform.rotation.eulerAngles;
-		temp.y = y;
-		transform.rotation = Quaternion.Euler(temp);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.y = y;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public void SetRotationZ(Transform transform, float z)
 	{
-		Vector3 temp = transform.rotation.eulerAngles;
-		temp.z = z;
-		transform.rotation = Quaternion.Euler(temp);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.z = z;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public void AddToRotation(Transform transform, float x, float y, float z)
 	{
-		transform.rotation *= Quaternion.Euler(x, y, z);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.x += x;
+		eulerAngles.y += y;
+		eulerAngles.z += z;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public void AddToRotationX(Transform transform, float x)
 	{
-		transform.rotation *= Quaternion.Euler(x, 0.0f, 0.0f);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.x += x;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public void AddToRotationY(Transform transform, float y)
 	{
-		transform.rotation *= Quaternion.Euler(0.0f, y, 0.0f);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.y += y;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public void AddToRotationZ(Transform transform, float z)
 	{
-		transform.rotation *= Quaternion.Euler(0.0f, 0.0f, z);
+		Vector3 eulerAngles = transform.eulerAngles;
+		eulerAngles.z += z;
+		transform.eulerAngles = eulerAngles;
 	}
 
 	static public Vector3 GetRotation(Transform transform)
 	{
-		return transform.rotation.eulerAngles;
+		return transform.eulerAngles;
 	}
 
 	static public float GetRotationX(Transform transform)
 	{
-		return transform.rotation.eulerAngles.x;
+		return transform.eulerAngles.x;
 	}
 
 	static public float GetRotationY(Transform transform)
 	{
-		return transform.rotation.eulerAngles.y;
+		return transform.eulerAngles.y;
 	}
 
 	static public float GetRotationZ(Transform transform)
 	{
-		return transform.rotation.eulerAngles.z;
+		return transform.eulerAngles.z;
 	}
 
 	static public void SetLocalRotation(Transform transform, float x, float y, float z)
 	{
-		transform.localRotation = Quaternion.Euler(x, y, z);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.x = x;
+		localEulerAngles.y = y;
+		localEulerAngles.z = z;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public void SetLocalRotationX(Transform transform, float x)
 	{
-		Vector3 temp = transform.localRotation.eulerAngles;
-		temp.x = x;
-		transform.localRotation = Quaternion.Euler(temp);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.x = x;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public void SetLocalRotationY(Transform transform, float y)
 	{
-		Vector3 temp = transform.localRotation.eulerAngles;
-		temp.y = y;
-		transform.localRotation = Quaternion.Euler(temp);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.y = y;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public void SetLocalRotationZ(Transform transform, float z)
 	{
-		Vector3 temp = transform.localRotation.eulerAngles;
-		temp.z = z;
-		transform.localRotation = Quaternion.Euler(temp);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.z = z;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public void AddToLocalRotation(Transform transform, float x, float y, float z)
 	{
-		transform.localRotation *= Quaternion.Euler(x, y, z);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.x += x;
+		localEulerAngles.y += y;
+		localEulerAngles.z += z;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public void AddToLocalRotationX(Transform transform, float x)
 	{
-		transform.localRotation *= Quaternion.Euler(x, 0.0f, 0.0f);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.x += x;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public void AddToLocalRotationY(Transform transform, float y)
 	{
-		transform.localRotation *= Quaternion.Euler(0.0f, y, 0.0f);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.y += y;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public void AddToLocalRotationZ(Transform transform, float z)
 	{
-		transform.localRotation *= Quaternion.Euler(0.0f, 0.0f, z);
+		Vector3 localEulerAngles = transform.localEulerAngles;
+		localEulerAngles.z += z;
+		transform.localEulerAngles = localEulerAngles;
 	}
 
 	static public Vector3 GetLocalRotation(Transform transform)
 	{
-		return transform.localRotation.eulerAngles;
+		return transform.localEulerAngles;
 	}
 
 	static public float GetLocalRotationX(Transform transform)
 	{
-		return transform.localRotation.eulerAngles.x;
+		return transform.localEulerAngles.x;
 	}
 
 	static public float GetLocalRotationY(Transform transform)
 	{
-		return transform.localRotation.eulerAngles.y;
+		return transform.localEulerAngles.y;
 	}
 
 	static public float GetLocalRotationZ(Transform transform)
 	{
-		return transform.localRotation.eulerAngles.z;
+		return transform.localEulerAngles.z;
 	}
 
 	// Scale
 
-	static public void SetScale(Transform transform, float x, float y, float z)
+	static public void SetLocalScale(Transform transform, float x, float y, float z)
 	{
 		transform.localScale = new Vector3(x, y, z);
 	}
 
-	static public void SetScaleX(Transform transform, float x)
+	static public void SetLocalScaleX(Transform transform, float x)
 	{
 		Vector3 temp = transform.localScale;
 		temp.x = x;
 		transform.localScale = temp;
 	}
 
-	static public void SetScaleY(Transform transform, float y)
+	static public void SetLocalScaleY(Transform transform, float y)
 	{
 		Vector3 temp = transform.localScale;
 		temp.y = y;
 		transform.localScale = temp;
 	}
 
-	static public void SetScaleZ(Transform transform, float z)
+	static public void SetLocalScaleZ(Transform transform, float z)
 	{
 		Vector3 temp = transform.localScale;
 		temp.z = z;
 		transform.localScale = temp;
 	}
 
-	static public void AddToScale(Transform transform, float x, float y, float z)
+	static public void AddToLocalScale(Transform transform, float x, float y, float z)
 	{
 		Vector3 temp = transform.position;
 		temp.x += x;
@@ -327,43 +355,43 @@ public partial class Zenon
 		transform.localScale = temp;
 	}
 
-	static public void AddToScaleX(Transform transform, float x)
+	static public void AddToLocalScaleX(Transform transform, float x)
 	{
 		Vector3 temp = transform.localScale;
 		temp.x += x;
 		transform.localScale = temp;
 	}
 
-	static public void AddToScaleY(Transform transform, float y)
+	static public void AddToLocalScaleY(Transform transform, float y)
 	{
 		Vector3 temp = transform.localScale;
 		temp.y += y;
 		transform.localScale = temp;
 	}
 
-	static public void AddToScaleZ(Transform transform, float z)
+	static public void AddToLocalScaleZ(Transform transform, float z)
 	{
 		Vector3 temp = transform.localScale;
 		temp.z += z;
 		transform.localScale = temp;
 	}
 
-	static public Vector3 GetScale(Transform transform)
+	static public Vector3 GetLocalScale(Transform transform)
 	{
 		return transform.localScale;
 	}
 
-	static public float GetScaleX(Transform transform)
+	static public float GetLocalScaleX(Transform transform)
 	{
 		return transform.localScale.x;
 	}
 
-	static public float GetScaleY(Transform transform)
+	static public float GetLocalScaleY(Transform transform)
 	{
 		return transform.localScale.y;
 	}
 
-	static public float GetScaleZ(Transform transform)
+	static public float GetLocalScaleZ(Transform transform)
 	{
 		return transform.localScale.z;
 	}

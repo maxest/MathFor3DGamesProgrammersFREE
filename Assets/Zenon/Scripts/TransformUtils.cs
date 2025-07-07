@@ -160,11 +160,7 @@ public partial class Zenon
 
 	static public void SetRotation(Transform transform, float x, float y, float z)
 	{
-		Vector3 eulerAngles = transform.eulerAngles;
-		eulerAngles.x = x;
-		eulerAngles.y = y;
-		eulerAngles.z = z;
-		transform.eulerAngles = eulerAngles;
+		transform.eulerAngles = new Vector3(x, y, z);
 	}
 
 	static public void SetRotationX(Transform transform, float x)
@@ -240,11 +236,7 @@ public partial class Zenon
 
 	static public void SetLocalRotation(Transform transform, float x, float y, float z)
 	{
-		Vector3 localEulerAngles = transform.localEulerAngles;
-		localEulerAngles.x = x;
-		localEulerAngles.y = y;
-		localEulerAngles.z = z;
-		transform.localEulerAngles = localEulerAngles;
+		transform.localEulerAngles = new Vector3(x, y, z);
 	}
 
 	static public void SetLocalRotationX(Transform transform, float x)
@@ -319,6 +311,66 @@ public partial class Zenon
 	}
 
 	// Scale
+
+	static public void SetScale(Transform transform, float x, float y, float z)
+	{
+		SetLocalScale(transform, x, y, z);
+	}
+
+	static public void SetScaleX(Transform transform, float x)
+	{
+		SetLocalScaleX(transform, x);
+	}
+
+	static public void SetScaleY(Transform transform, float y)
+	{
+		SetLocalScaleY(transform, y);
+	}
+
+	static public void SetScaleZ(Transform transform, float z)
+	{
+		SetLocalScaleZ(transform, z);
+	}
+
+	static public void AddToScale(Transform transform, float x, float y, float z)
+	{
+		AddToLocalScale(transform, x, y, z);
+	}
+
+	static public void AddToScaleX(Transform transform, float x)
+	{
+		AddToLocalScaleX(transform, x);
+	}
+
+	static public void AddToScaleY(Transform transform, float y)
+	{
+		AddToLocalScaleY(transform, y);
+	}
+
+	static public void AddToScaleZ(Transform transform, float z)
+	{
+		AddToLocalScaleZ(transform, z);
+	}
+
+	static public Vector3 GetScale(Transform transform)
+	{
+		return GetLocalScale(transform);
+	}
+
+	static public float GetScaleX(Transform transform)
+	{
+		return GetLocalScaleX(transform);
+	}
+
+	static public float GetScaleY(Transform transform)
+	{
+		return GetLocalScaleY(transform);
+	}
+
+	static public float GetScaleZ(Transform transform)
+	{
+		return GetLocalScaleZ(transform);
+	}
 
 	static public void SetLocalScale(Transform transform, float x, float y, float z)
 	{

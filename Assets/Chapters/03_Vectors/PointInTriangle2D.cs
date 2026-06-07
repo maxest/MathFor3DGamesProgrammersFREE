@@ -34,24 +34,24 @@ public class PointInTriangle2D : MonoBehaviour
 		Zenon.DrawCircleXY(a.x, a.y, 0.0f, 0.2f, 10002, Color.red);
 		Zenon.DrawCircleXY(b.x, b.y, 0.0f, 0.2f, 10002, Color.red);
 		Zenon.DrawCircleXY(c.x, c.y, 0.0f, 0.2f, 10002, Color.red);
-		Zenon.DrawCircleXY(p.x, p.y, 0.0f, 0.2f, 10002, Color.blue);
+		Zenon.DrawCircleXY(p.x, p.y, 0.0f, 0.2f, 10003, Color.blue);
 
 		if (debugDrawVertexIndex == 1)
 		{
-			Zenon.DrawSegmentXY(a.x, a.y, p.x, p.y, 0.1f, false, 10003, Color.blue);
-			Zenon.DrawAxis3D(a, new Vector3(a.x, a.y, 0.0f) + ap_ab, 0.05f, 0.2f, 0.1f, 10004, Zenon.ColorGreen075);
+			Zenon.DrawSegmentXY(a.x, a.y, p.x, p.y, 0.1f, false, 10004, Color.blue);
+			Zenon.DrawAxis3D(a, new Vector3(a.x, a.y, 0.0f) + ap_ab, 0.05f, 0.2f, 0.1f, 10005, Zenon.ColorGreen075);
 		}
 		else if (debugDrawVertexIndex == 2)
 		{
-			Zenon.DrawSegmentXY(b.x, b.y, p.x, p.y, 0.1f, false, 10003, Color.blue);
-			Zenon.DrawAxis3D(b, new Vector3(b.x, b.y, 0.0f) + bp_bc, 0.05f, 0.2f, 0.1f, 10004, Zenon.ColorGreen075);
+			Zenon.DrawSegmentXY(b.x, b.y, p.x, p.y, 0.1f, false, 10004, Color.blue);
+			Zenon.DrawAxis3D(b, new Vector3(b.x, b.y, 0.0f) + bp_bc, 0.05f, 0.2f, 0.1f, 10005, Zenon.ColorGreen075);
 		}
 		else if (debugDrawVertexIndex == 3)
 		{
-			Zenon.DrawSegmentXY(c.x, c.y, p.x, p.y, 0.1f, false, 10003, Color.blue);
-			Zenon.DrawAxis3D(c, new Vector3(c.x, c.y, 0.0f) + cp_ca, 0.05f, 0.2f, 0.1f, 10004, Zenon.ColorGreen075);
+			Zenon.DrawSegmentXY(c.x, c.y, p.x, p.y, 0.1f, false, 10004, Color.blue);
+			Zenon.DrawAxis3D(c, new Vector3(c.x, c.y, 0.0f) + cp_ca, 0.05f, 0.2f, 0.1f, 10005, Zenon.ColorGreen075);
 		}
 
-		Zenon.DrawTextWithBackground(isInside.ToString(), -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 0.1f, 0.01f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10005, Color.black, Color.white);
+		Zenon.DrawTextWithBackground(isInside.ToString(), -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 0.1f, 0.01f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10006, Color.black, Color.white);
 	}
 }

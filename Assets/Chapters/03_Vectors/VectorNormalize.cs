@@ -6,19 +6,27 @@ public class VectorNormalize : MonoBehaviour
 
 	void Update()
 	{
-		Vector2 v_normalized = v / v.magnitude;
+		Vector2 u = v / v.magnitude;
 
-	//	Vector2 v_normalized = v.normalized;
+	//	u = v.normalized;
 
-	//	Vector2 v_normalized = v;
-	//	v_normalized.Normalize();
+	//	u = v;
+	//	u.Normalize();
+
+	//	u = v / GetLength(v);
 
 		//
 
+		Zenon.CanvasWidth = 16.0f;
 		Zenon.DrawRect(Zenon.GetCanvasWidth(), Zenon.GetCanvasHeight(), 10000, Color.white);
 		Zenon.DrawCoordSystem(true, 15.0f, 10.0f, 1.0f, 0.05f, 10001);
 
 		Zenon.DrawAxis(0.0f, 0.0f, v.x, v.y, 0.1f, 10002, Color.red);
-		Zenon.DrawAxis(0.0f, 0.0f, v_normalized.x, v_normalized.y, 0.1f, 10003, Zenon.ColorGreen075);
+		Zenon.DrawAxis(0.0f, 0.0f, u.x, u.y, 0.1f, 10003, Zenon.ColorGreen075);
+	}
+
+	private float GetLength(Vector2 v)
+	{
+		return Mathf.Sqrt(v.x*v.x + v.y*v.y);
 	}
 }

@@ -9,12 +9,12 @@ public class VectorsDot : MonoBehaviour
 
 	void Update()
 	{
-		Vector2 v1_normalized = v1.normalized;
-		Vector2 v2_normalized = v2.normalized;
+		float vDot = Dot(v1, v2);
 
-		float dot_unnormalized = Vector2.Dot(v1, v2);
-		float dot_normalized = Vector2.Dot(v1_normalized, v2_normalized);
-		float theta = Mathf.Acos(dot_normalized) * Mathf.Rad2Deg;
+		Vector2 u1 = v1.normalized;
+		Vector2 u2 = v2.normalized;
+		float uDot = Vector2.Dot(u1, u2);
+		float theta = Mathf.Acos(uDot);
 
 		//
 
@@ -26,14 +26,19 @@ public class VectorsDot : MonoBehaviour
 		{
 			Zenon.DrawAxis(0.0f, 0.0f, v1.x, v1.y, 0.1f, 10002, Color.red);
 			Zenon.DrawAxis(0.0f, 0.0f, v2.x, v2.y, 0.1f, 10002, Zenon.ColorGreen075);
-			Zenon.DrawTextWithBackground("dot product: " + dot_unnormalized, -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 0.1f, 0.007f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10003, Color.black, Color.white);
+			Zenon.DrawTextWithBackground("dot product: " + vDot, -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 0.1f, 0.007f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10003, Color.black, Color.white);
 		}
 		else
 		{
-			Zenon.DrawAxis(0.0f, 0.0f, v1_normalized.x, v1_normalized.y, 0.1f, 10002, Color.red);
-			Zenon.DrawAxis(0.0f, 0.0f, v2_normalized.x, v2_normalized.y, 0.1f, 10002, Zenon.ColorGreen075);
-			Zenon.DrawTextWithBackground("dot product: " + dot_normalized, -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 0.1f, 0.007f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10003, Color.black, Color.white);
+			Zenon.DrawAxis(0.0f, 0.0f, u1.x, u1.y, 0.1f, 10002, Color.red);
+			Zenon.DrawAxis(0.0f, 0.0f, u2.x, u2.y, 0.1f, 10002, Zenon.ColorGreen075);
+			Zenon.DrawTextWithBackground("dot product: " + uDot, -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 0.1f, 0.007f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10003, Color.black, Color.white);
 		}
-		Zenon.DrawTextWithBackground("theta: " + theta, -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 1.0f, 0.007f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10003, Color.black, Color.white);
+		Zenon.DrawTextWithBackground("theta: " + (theta * Mathf.Rad2Deg), -Zenon.GetCanvasWidth() * 0.5f + 0.1f, Zenon.GetCanvasHeight() * 0.5f - 1.0f, 0.007f, Zenon.HoriAlignment.Left, Zenon.VertAlignment.Top, 10003, Color.black, Color.white);
+	}
+
+	public float Dot(Vector2 v1, Vector2 v2)
+	{
+		return v1.x*v2.x + v1.y*v2.y;
 	}
 }

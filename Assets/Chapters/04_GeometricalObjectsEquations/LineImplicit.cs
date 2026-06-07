@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class LineImplicit : MonoBehaviour
 {
-	public float line1_x1 = -3.0f;
-	public float line1_y1 = 3.0f;
-	public float line1_x2 = 3.0f;
-	public float line1_y2 = -3.0f;
-
-	public float line2_x1 = -3.0f;
-	public float line2_y1 = -3.0f;
-	public float line2_x2 = 3.0f;
-	public float line2_y2 = 3.0f;
+	public Vector2 line1_p1 = new Vector2(-3.0f, 3.0f);
+	public Vector2 line1_p2 = new Vector2(3.0f, -3.0f);
+	public Vector2 line2_p1 = new Vector2(-3.0f, -3.0f);
+	public Vector2 line2_p2 = new Vector2(3.0f, 3.0f);
 
 	public float px = 3.0f;
 	public float py = -1.0f;
@@ -22,8 +17,6 @@ public class LineImplicit : MonoBehaviour
 		
 		//
 
-		Vector2 line1_p1 = new Vector2(line1_x1, line1_y1);
-		Vector2 line1_p2 = new Vector2(line1_x2, line1_y2);
 		Vector2 line1_v = line1_p2 - line1_p1;
 		line1_v.Normalize();
 
@@ -33,8 +26,6 @@ public class LineImplicit : MonoBehaviour
 
 		//
 
-		Vector2 line2_p1 = new Vector2(line2_x1, line2_y1);
-		Vector2 line2_p2 = new Vector2(line2_x2, line2_y2);
 		Vector2 line2_v = line2_p2 - line2_p1;
 		line2_v.Normalize();
 
@@ -50,13 +41,13 @@ public class LineImplicit : MonoBehaviour
 		//
 
 		// https://www.wolframalpha.com/input?i=a_1*x+%2B+b_1*y+%2B+c_1+%3D+0%2C+a_2*x+%2B+b_2*y+%2B+c_2+%3D+0%2C+find+x+and+y
-		float ix = (b1 * c2 - b2 * c1) / (a1 * b2 - a2 * b1);
-		float iy = (a2 * c1 - a1 * c2) / (a1 * b2 - a2 * b1);
+		float ix = (b2*c1 - b1*c2) / (a2*b1 - a1*b2);
+		float iy = (a2*c1 - a1*c2) / (a1*b2 - a2*b1);
 
 		//
 
-		Zenon.DrawSegment(line1_x1, line1_y1, line1_x2, line1_y2, 0.05f, 10002, Color.red);
-		Zenon.DrawSegment(line2_x1, line2_y1, line2_x2, line2_y2, 0.05f, 10003, Color.blue);
+		Zenon.DrawSegment(line1_p1.x, line1_p1.y, line1_p2.x, line1_p2.y, 0.05f, 10002, Color.red);
+		Zenon.DrawSegment(line2_p1.x, line2_p1.y, line2_p2.x, line2_p2.y, 0.05f, 10003, Color.blue);
 
 		Zenon.DrawCircle(px, py, 0.1f, 10004, Color.black);
 		Zenon.DrawCircle(ix, iy, 0.1f, 10004, Color.black);

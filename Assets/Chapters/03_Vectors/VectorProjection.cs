@@ -8,8 +8,9 @@ public class VectorProjection : MonoBehaviour
 	void Update()
 	{
 		// base vector is not normalized
-		float baseVector_lengthSqr = Vector2.Dot(baseVector, baseVector);
-		Vector2 projectedVector = (Vector2.Dot(baseVector, vectorToProject) * baseVector) / (baseVector_lengthSqr);
+		Vector2 projectedVector =
+			(Vector2.Dot(baseVector, vectorToProject) * baseVector) /
+			(Vector2.Dot(baseVector, baseVector));
 
 		// base vector is normalized
 	//	Vector2 baseVector_normalized = baseVector.normalized;

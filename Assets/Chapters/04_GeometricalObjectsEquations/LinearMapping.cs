@@ -9,8 +9,13 @@ public class LinearMapping : MonoBehaviour
 
 	void Update()
 	{
-		float a = (interval2_end - interval2_begin) / (interval1_end - interval1_begin);
-		float b = interval2_begin - a * interval1_begin;
+		float x1 = interval1_begin;
+		float x2 = interval1_end;
+		float y1 = interval2_begin;
+		float y2 = interval2_end;
+
+		float a = (y2 - y1) / (x2 - x1);
+		float b = y1 - a*x1;
 
 		float y = a*x + b;
 

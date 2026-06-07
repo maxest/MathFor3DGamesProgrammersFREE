@@ -14,6 +14,8 @@ public class PlaneMovement : MonoBehaviour
 	{
 		Zenon.DrawTriangle3D(triangleP1, triangleP2, triangleP3, 10000, Color.white);
 
+		//
+
 		Vector3 triangleN = Vector3.Cross(triangleP2 - triangleP1, triangleP3 - triangleP1).normalized;
 
 		float a = triangleN.x;
@@ -22,6 +24,8 @@ public class PlaneMovement : MonoBehaviour
 		float d = -(a*triangleP1.x + b*triangleP1.y + c*triangleP1.z);
 
 		float sphereY = -(a*sphereX + c*sphereZ + d) / b;
+
+		//
 
 		sphereGO.transform.position = new Vector3(sphereX, sphereY, sphereZ);
 	}

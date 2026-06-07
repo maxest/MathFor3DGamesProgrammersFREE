@@ -9,7 +9,6 @@ public class SpherePointsGeneration : MonoBehaviour
 	public int idx = 0;
 	public int n = 256;
 	public float radius = 2.0f;
-	public float angleOffset = 0.0f;
 
 	void Update()
 	{
@@ -21,7 +20,7 @@ public class SpherePointsGeneration : MonoBehaviour
 			float theta = Mathf.Acos(1.0f - 2.0f * i_float / n);
 			float phi = Mathf.PI * (1.0f + Mathf.Sqrt(5.0f)) * i_float;
 
-			SphericalToCartesian(out float x, out float y, out float z, radius, theta, phi + angleOffset);
+			SphericalToCartesian(out float x, out float y, out float z, radius, theta, phi);
 			DrawMesh(i != idx ? whiteMaterial : redMaterial, x, y, z);
 		}
 	}

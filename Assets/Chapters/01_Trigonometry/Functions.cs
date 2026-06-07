@@ -11,25 +11,25 @@ public class Functions : MonoBehaviour
 		float y_atRightAngle = y1;
 
 		Vector2 p1 = new Vector2(x1, y1);
-		Vector2 p2 = new Vector2(x_atRightAngle, y_atRightAngle);
-		Vector2 p3 = new Vector2(x2, y2);
+		Vector2 p2 = new Vector2(x2, y2);
+		Vector2 p3 = new Vector2(x_atRightAngle, y_atRightAngle);
 
 		Vector2 e1 = p2 - p1;
 		Vector2 e2 = p3 - p2;
 		Vector2 e3 = p1 - p3;
-		Vector2 e1_normal = new Vector2(e1.y, -e1.x).normalized;
-		Vector2 e2_normal = new Vector2(e2.y, -e2.x).normalized;
-		Vector2 e3_normal = new Vector2(e3.y, -e3.x).normalized;
+		Vector2 e1_normal = new Vector2(-e1.y, e1.x).normalized;
+		Vector2 e2_normal = new Vector2(-e2.y, e2.x).normalized;
+		Vector2 e3_normal = new Vector2(-e3.y, e3.x).normalized;
 
-		Vector2 labelAPosition = p1 + 0.5f*e1 + 0.25f*e1_normal;
+		Vector2 labelAPosition = p3 + 0.5f*e3 + 0.25f*e3_normal;
 		Vector2 labelBPosition = p2 + 0.5f*e2 + 0.25f*e2_normal;
-		Vector2 labelCPosition = p3 + 0.5f*e3 + 0.25f*e3_normal;
+		Vector2 labelCPosition = p1 + 0.5f*e1 + 0.25f*e1_normal;
 
 		//
 
-		float a = e1.magnitude;
-		float b = e2.magnitude;
-		float c = e3.magnitude;
+		float a = Vector2.Distance(p1, p3);
+		float b = Vector2.Distance(p3, p2);
+		float c = Vector2.Distance(p2, p1);
 
 		float sine = b / c;
 		float angleBySine = Mathf.Asin(sine);
@@ -50,9 +50,9 @@ public class Functions : MonoBehaviour
 		float startAngle = 0.0f;
 		float stopAngle = angleByTangent * Mathf.Rad2Deg;
 
-		Zenon.DrawCircleArc(x1, y1, 2.0f, startAngle, stopAngle, 10001, Zenon.ColorRGB(0.0f, 1.0f, 0.0f));
-		Zenon.DrawAngle(x1, y1, 2.0f, 1.5f, "α", 0.007f, startAngle, stopAngle, 0.05f, 10002, Color.black);
-		Zenon.DrawTriangleWireframe(x1, y1, x_atRightAngle, y_atRightAngle, x2, y2, 0.05f, 10003, Color.black);
+		Zenon.DrawCircleArc(p1.x, p1.y, 2.0f, startAngle, stopAngle, 10001, Zenon.ColorRGB(0.0f, 1.0f, 0.0f));
+		Zenon.DrawAngle(p1.x, p1.y, 2.0f, 1.5f, "α", 0.007f, startAngle, stopAngle, 0.05f, 10002, Color.black);
+		Zenon.DrawTriangleWireframe(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, 0.05f, 10003, Color.black);
 
 		Zenon.DrawText("a", labelAPosition.x, labelAPosition.y, 0.007f, Zenon.HoriAlignment.Center, Zenon.VertAlignment.Center, 10004, Color.black);
 		Zenon.DrawText("b", labelBPosition.x, labelBPosition.y, 0.007f, Zenon.HoriAlignment.Center, Zenon.VertAlignment.Center, 10004, Color.black);

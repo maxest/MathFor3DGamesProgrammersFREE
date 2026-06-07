@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class LineParametric : MonoBehaviour
 {
-	public float line1_x1 = -3.0f;
-	public float line1_y1 = 3.0f;
-	public float line1_x2 = 3.0f;
-	public float line1_y2 = -3.0f;
-	public float t1 = 0.5f;
+	public Vector2 line1_p1 = new Vector2(-3.0f, 3.0f);
+	public Vector2 line1_p2 = new Vector2(3.0f, -3.0f);
+	public Vector2 line2_p1 = new Vector2(-3.0f, -3.0f);
+	public Vector2 line2_p2 = new Vector2(3.0f, 3.0f);
 
-	public float line2_x1 = -3.0f;
-	public float line2_y1 = -3.0f;
-	public float line2_x2 = 3.0f;
-	public float line2_y2 = 3.0f;
+	public float t1 = 0.5f;
 	public float t2 = 0.5f;
 
 	public bool findIntersection = false;
@@ -23,13 +19,9 @@ public class LineParametric : MonoBehaviour
 		
 		//
 
-		Vector2 line1_p1 = new Vector2(line1_x1, line1_y1);
-		Vector2 line1_p2 = new Vector2(line1_x2, line1_y2);
 		Vector2 line1_v = line1_p2 - line1_p1;
 	//	line1_v.Normalize();
 
-		Vector2 line2_p1 = new Vector2(line2_x1, line2_y1);
-		Vector2 line2_p2 = new Vector2(line2_x2, line2_y2);
 		Vector2 line2_v = line2_p2 - line2_p1;
 	//	line2_v.Normalize();
 
@@ -47,8 +39,8 @@ public class LineParametric : MonoBehaviour
 			float g = line2_p1.y;
 			float h = line2_v.y;
 
-			t1 = (h * (a - c) + d * (g - e)) / (d * f - b * h);
-			t2 = (f * (a - c) + b * (g - e)) / (d * f - b * h);
+			t1 = ( h*(a - c) + d*(g - e) ) / ( d*f - b*h );
+			t2 = ( f*(a - c) + b*(g - e) ) / ( d*f - b*h );
 		}
 
 		//
@@ -58,8 +50,8 @@ public class LineParametric : MonoBehaviour
 
 		//
 
-		Zenon.DrawSegment(line1_x1, line1_y1, line1_x2, line1_y2, 0.05f, 10002, Color.red);
-		Zenon.DrawSegment(line2_x1, line2_y1, line2_x2, line2_y2, 0.05f, 10003, Color.blue);
+		Zenon.DrawSegment(line1_p1.x, line1_p1.y, line1_p2.x, line1_p2.y, 0.05f, 10002, Color.red);
+		Zenon.DrawSegment(line2_p1.x, line2_p1.y, line2_p2.x, line2_p2.y, 0.05f, 10003, Color.blue);
 		Zenon.DrawCircle(line1_p.x, line1_p.y, 0.1f, 10004, Color.black);
 		Zenon.DrawCircle(line2_p.x, line2_p.y, 0.1f, 10004, Color.black);
 	}

@@ -13,6 +13,8 @@ public class SphericalCoords : MonoBehaviour
 	public float singleTheta = 0.0f;
 	public float singlePhi = 0.0f;
 
+	public bool cartesianToSpherical = false;
+
 	void Update()
 	{
 		for (float theta = 0.0f; theta < thetaRange; theta += 0.1f)
@@ -26,6 +28,15 @@ public class SphericalCoords : MonoBehaviour
 
 		SphericalToCartesian(out float x2, out float y2, out float z2, radius, singleTheta, singlePhi);
 		DrawMesh(redMaterial, x2, y2, z2, 0.15f);
+
+		if (cartesianToSpherical)
+		{
+			CartesianToSpherical(out float radius2, out float singleTheta2, out float singlePhi2, x2, y2, z2);
+			Debug.Log(radius2 + "    " + singleTheta2 + "    " + singlePhi2);
+
+			SphericalToCartesian(out x2, out y2, out z2, radius2, singleTheta2, singlePhi2);
+			DrawMesh(redMaterial, x2, y2, z2, 0.3f);
+		}
 	}
 
 	private void SphericalToCartesian(out float x, out float y, out float z, float radius, float theta, float phi)
@@ -33,6 +44,13 @@ public class SphericalCoords : MonoBehaviour
 		x = radius * Mathf.Sin(theta) * Mathf.Cos(phi);
 		y = radius * Mathf.Sin(theta) * Mathf.Sin(phi);
 		z = radius * Mathf.Cos(theta);
+	}
+	
+	private void CartesianToSpherical(out float radius, out float theta, out float phi, float x, float y, float z)
+	{
+		radius = Mathf.Sqrt(x*x + y*y + z*z);
+		theta = Mathf.Acos(z / radius);
+		phi = Mathf.Atan2(y, x);
 	}
 
 	private void DrawMesh(Material material, float x, float y, float z, float scale = 0.1f)

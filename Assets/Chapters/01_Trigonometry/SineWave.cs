@@ -72,7 +72,6 @@ public class SineWave : MonoBehaviour
 			Zenon.DrawSegment(x, -0.2f, x, 0.2f, 0.1f, 10001, Color.black);
 			Zenon.DrawText(text, x, -0.25f, 0.007f, Zenon.HoriAlignment.Center, Zenon.VertAlignment.Top, 10001, Color.black);
 		}
-
 		DrawAngle("45°", Mathf.PI / 4.0f);
 		DrawAngle("90°", Mathf.PI / 2.0f);
 		DrawAngle("180°", Mathf.PI);

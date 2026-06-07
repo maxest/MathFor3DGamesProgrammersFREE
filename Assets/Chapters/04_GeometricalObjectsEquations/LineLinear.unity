@@ -219,14 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a1d21fbb359a4469b95a08745a9e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line1_x1: -3
-  line1_y1: 3
-  line1_x2: 3
-  line1_y2: -3
-  line2_x1: -3
-  line2_y1: -3
-  line2_x2: 3
-  line2_y2: 3
+  line1_p1: {x: -3, y: 3}
+  line1_p2: {x: 3, y: -3}
+  line2_p1: {x: -3, y: -3}
+  line2_p2: {x: 3, y: 3}
   a1: 0
   b1: 0
   a2: 0

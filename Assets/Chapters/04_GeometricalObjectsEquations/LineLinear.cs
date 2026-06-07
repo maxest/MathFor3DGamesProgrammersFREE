@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class LineLinear : MonoBehaviour
 {
-	public float line1_x1 = -3.0f;
-	public float line1_y1 = 3.0f;
-	public float line1_x2 = 3.0f;
-	public float line1_y2 = -3.0f;
-
-	public float line2_x1 = -3.0f;
-	public float line2_y1 = -3.0f;
-	public float line2_x2 = 3.0f;
-	public float line2_y2 = 3.0f;
+	public Vector2 line1_p1 = new Vector2(-3.0f, 3.0f);
+	public Vector2 line1_p2 = new Vector2(3.0f, -3.0f);
+	public Vector2 line2_p1 = new Vector2(-3.0f, -3.0f);
+	public Vector2 line2_p2 = new Vector2(3.0f, 3.0f);
 
 	public float a1, b1, a2, b2;
 
@@ -21,11 +16,11 @@ public class LineLinear : MonoBehaviour
 
 		//
 
-		a1 = (line1_y2 - line1_y1) / (line1_x2 - line1_x1);
-		b1 = line1_y1 - a1 * line1_x1;
+		a1 = (line1_p2.y - line1_p1.y) / (line1_p2.x - line1_p1.x);
+		b1 = line1_p1.y - a1*line1_p1.x;
 
-		a2 = (line2_y2 - line2_y1) / (line2_x2 - line2_x1);
-		b2 = line2_y1 - a2 * line2_x1;
+		a2 = (line2_p2.y - line2_p1.y) / (line2_p2.x - line2_p1.x);
+		b2 = line2_p1.y - a2*line2_p1.x;
 
 		//
 
@@ -34,8 +29,26 @@ public class LineLinear : MonoBehaviour
 
 		//
 
-		Zenon.DrawSegment(line1_x1, line1_y1, line1_x2, line1_y2, 0.05f, 10002, Color.red);
-		Zenon.DrawSegment(line2_x1, line2_y1, line2_x2, line2_y2, 0.05f, 10003, Color.blue);
+		{
+			Zenon.DrawSegment(line1_p1.x, line1_p1.y, line1_p2.x, line1_p2.y, 0.05f, 10002, Color.red);
+			Zenon.DrawSegment(line2_p1.x, line2_p1.y, line2_p2.x, line2_p2.y, 0.05f, 10003, Color.blue);
+		}
+
+	/*	{
+			float Line1(float x)
+			{
+				return a1*x + b1;
+			}
+
+			float Line2(float x)
+			{
+				return a2*x + b2;
+			}
+
+			Zenon.DrawFunction(Line1, line1_p1.x, line1_p2.x, 0.05f, 10002, Color.red);
+			Zenon.DrawFunction(Line2, line2_p1.x, line2_p2.x, 0.05f, 10003, Color.blue);
+		}*/
+
 		Zenon.DrawCircle(ix, iy, 0.1f, 10004, Color.black);
 	}
 }

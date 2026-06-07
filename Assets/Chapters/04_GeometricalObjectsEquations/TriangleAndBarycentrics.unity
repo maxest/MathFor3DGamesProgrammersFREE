@@ -224,10 +224,13 @@ MonoBehaviour:
   whiteMaterial: {fileID: 2100000, guid: 0c40d288b2e85e6459d2e46bb1e3b53e, type: 2}
   redMaterial: {fileID: 2100000, guid: 10b7c800fd26559458e3eb42e1175b18, type: 2}
   greenMaterial: {fileID: 2100000, guid: d7736a116f2431a4695a77373044a1e9, type: 2}
-  p1: {x: 0, y: 0, z: 0}
+  blueMaterial: {fileID: 2100000, guid: c14e32c04949f614fa006369c474e1a5, type: 2}
+  p0: {x: 0, y: 0, z: 0}
+  p1: {x: 0, y: 5, z: 0}
   p2: {x: 5, y: 0, z: 0}
-  p3: {x: 0, y: 5, z: 0}
-  barys: {x: 0.5, y: 0.5}
+  b1: 0.5
+  b2: 0.5
+  p: {x: 2.5, y: 2.5, z: 0}
 --- !u!1 &1228179502
 GameObject:
   m_ObjectHideFlags: 0

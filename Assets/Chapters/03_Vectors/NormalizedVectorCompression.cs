@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// https://knarkowicz.wordpress.com/2014/04/16/octahedron-normal-vector-encoding/
 public class NormalizedVectorCompression : MonoBehaviour
 {
 	public enum EncodingMode
@@ -58,7 +57,7 @@ public class NormalizedVectorCompression : MonoBehaviour
 		Vector3 v;
 		v.x = e.x;
 		v.y = e.y;
-		v.z = Mathf.Sqrt(Mathf.Max(0.0f, 1.0f - v.x * v.x - v.y * v.y));
+		v.z = Mathf.Sqrt(Mathf.Max(0.0f, 1.0f - v.x*v.x - v.y*v.y));
 
 		if (e.sign == 0)
 			v.z *= -1.0f;
@@ -66,7 +65,7 @@ public class NormalizedVectorCompression : MonoBehaviour
 		return v;
 	}
 
-	//
+	// https://knarkowicz.wordpress.com/2014/04/16/octahedron-normal-vector-encoding/
 
 	private Vector2 OctahedronEncode(Vector3 v)
 	{
@@ -78,8 +77,8 @@ public class NormalizedVectorCompression : MonoBehaviour
 		e.y = v.z >= 0.0f ? v.y : octWrap.y;
 
 		// [-1, 1] to [0, 1]
-		e.x = 0.5f * e.x + 0.5f;
-		e.y = 0.5f * e.y + 0.5f;
+		e.x = 0.5f*e.x + 0.5f;
+		e.y = 0.5f*e.y + 0.5f;
 
 		return e;
 	}
@@ -87,8 +86,8 @@ public class NormalizedVectorCompression : MonoBehaviour
 	private Vector3 OctahedronDecode(Vector2 e)
 	{
 		// [0, 1] to [-1, 1]
-		e.x = 2.0f * e.x - 1.0f;
-		e.y = 2.0f * e.y - 1.0f;
+		e.x = 2.0f*e.x - 1.0f;
+		e.y = 2.0f*e.y - 1.0f;
 
 		Vector3 v = new Vector3(e.x, e.y, 1.0f - Mathf.Abs(e.x) - Mathf.Abs(e.y));
 		float t = Mathf.Clamp01(-v.z);
@@ -122,9 +121,8 @@ public class NormalizedVectorCompression : MonoBehaviour
 		Vector2 e = OctahedronEncode(v);
 
 		Vector2Byte eb;
-		// https://twitter.com/rygorous/status/1249875302605438978
-		eb.x = (byte)(255.0f * e.x + 0.5f);
-		eb.y = (byte)(255.0f * e.y + 0.5f);
+		eb.x = (byte)(255.0f*e.x + 0.5f);
+		eb.y = (byte)(255.0f*e.y + 0.5f);
 
 		return eb;
 	}
